@@ -52,8 +52,8 @@ function solution(n) {
     dt[0], dt[1] = 1;
     
     for(let i=2; i<n+1; i++){
-        dt[i] = (dt[i-1] + dt[i-2] % 1234567);
+        dt[i] = (dt[i-1] + dt[i-2]) % 1234567;
     }
     
-    return dt[n] % 1234567;
+    return dt[n];
 }
