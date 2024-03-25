@@ -20,17 +20,12 @@ function solution(fees, records) {
         totalTime.set(key, totalTime.get(key) ? totalTime.get(key) + calTime : calTime);
     }
     
-    for(let [key, value] of totalTime){
-        if(value<=basicTime){
-            totalTime.set(key, basicPrice);
-        } else {
-            totalTime.set(key, basicPrice + Math.ceil((value-basicTime)/unitTime)*unitPrice);
-        }
-    }
-    
-    
     for(let [key, value] of new Map([...totalTime].sort())){
-        answer.push(value);
+        if(value<=basicTime){
+            answer.push(basicPrice);
+        } else {
+            answer.push(basicPrice + Math.ceil((value-basicTime)/unitTime)*unitPrice);
+        }
     }
     
     return answer;
