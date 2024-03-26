@@ -1,11 +1,10 @@
 function solution(triangle) {
-    let parentIndex = triangle.length-2;
-    let maxArray = getMax(triangle[parentIndex], triangle[parentIndex+1]);
+    let parentIndex = triangle.length-1;
     while(parentIndex>0){
         parentIndex = parentIndex-1;
-        maxArray = getMax(triangle[parentIndex], maxArray);
+        triangle[parentIndex] = getMax(triangle[parentIndex], triangle[parentIndex+1]);
     }
-    return maxArray[0];
+    return triangle[0][0];
 }
 
 const getMax = (parent, child) => {
