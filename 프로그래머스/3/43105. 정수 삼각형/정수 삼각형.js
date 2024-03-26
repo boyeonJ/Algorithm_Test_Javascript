@@ -9,9 +9,7 @@ function solution(triangle) {
 }
 
 const getMax = (parent, child) => {
-    let max = [];
-    parent.map((v, index)=>{
-        max.push(Math.max(v+child[index], v+child[index+1]));
+    return parent.map((v, index)=>{
+        return v+Math.max(child[index], child[index+1]);
     })
-    return max;
 }
